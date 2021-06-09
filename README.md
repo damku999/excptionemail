@@ -18,7 +18,8 @@ $ composer require darshan/exceptionemail
 Add exception capturing to `app/Exceptions/Handler.php`:
 
 ```php
-public function report(Exception $exception)
+use Throwable;
+public function report(Throwable $exception)
 {
     app('exceptionemail')->captureException($exception);
 
