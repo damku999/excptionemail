@@ -78,7 +78,7 @@ class ExceptionEmail
             if ($this->isExceptionFromBot()) {
                 return;
             }
-            if ($this->isIgnoredException()) {
+            if ($this->isIgnoredException($exception)) {
                 return;
             }
             if ($this->shouldCapture($exception)) {
@@ -184,7 +184,7 @@ class ExceptionEmail
      *
      * @return boolean
      */
-    private function isIgnoredException()
+    private function isIgnoredException($exception)
     {
         $ignored_exception = $this->config->get('exceptionemail.ignored_exception');
         if (! is_array($ignored_exception)) {
