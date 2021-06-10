@@ -70,6 +70,8 @@ You can also use `'*'` in the `$capture` array which will, in return captures ev
 ],
 ```
 
+#### Ignore Exception to sending over emails.
+
 By default, the package has included nothing to ignore exception email list 
 
 ```php
@@ -78,6 +80,8 @@ By default, the package has included nothing to ignore exception email list
 ],
 ```
 But if you want to ignore any specific type of exceptions you can add in the `$ignored_exception` array which will, in return ignored those specified exceptions.
+
+#### Usage
 
 ```php
 'ignored_exception' => [
