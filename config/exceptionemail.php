@@ -29,6 +29,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | A list of the exception types that should be captured.
+    |--------------------------------------------------------------------------
+    |
+    | For which exception class emails should not be sent?
+    |
+    */
+
+    'ignored_exception' => [
+        // Darshan\ExceptionEmail\Exceptions\DummyException::class,
+    ],
+    /*
+    |--------------------------------------------------------------------------
     | Error email recipients
     |--------------------------------------------------------------------------
     |
@@ -49,10 +61,10 @@ return [
     |
     */
     'ignored_bots' => [
-        'yandexbot',        // YandexBot
-        'googlebot',        // Googlebot
-        'bingbot',          // Microsoft Bingbot
-        'slurp',            // Yahoo! Slurp
-        'ia_archiver',      // Alexa
+        'yandexbot',// YandexBot
+        'googlebot',// Googlebot
+        'bingbot',// Microsoft Bingbot
+        'slurp',// Yahoo! Slurp
+        'ia_archiver',// Alexa
     ],
 ];

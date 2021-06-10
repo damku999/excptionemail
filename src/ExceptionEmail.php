@@ -25,7 +25,7 @@ class ExceptionEmail
 
     /**
      * The mailer instance.
-     * 
+     *
      * @var \Illuminate\Contracts\Mail\Mailer
      */
     private $mailer;
@@ -46,10 +46,12 @@ class ExceptionEmail
      * @param  \Psr\Log\LoggerInterface $logger
      * @return void
      */
-    public function __construct(Repository $config,
-                                ErrorHandler $handler,
-                                Mailer $mailer,
-                                LoggerInterface $logger)
+    public function __construct(
+        Repository $config,
+        ErrorHandler $handler,
+        Mailer $mailer,
+        LoggerInterface $logger
+    )
     {
         $this->config = $config;
 
@@ -76,14 +78,17 @@ class ExceptionEmail
             if ($this->isExceptionFromBot()) {
                 return;
             }
-
+            if ($this->isIgnoredException()) {
+                return;
+            }
             if ($this->shouldCapture($exception)) {
                 $this->capture($exception);
             }
         } catch (Throwable $e) {
             $this->logger->error(sprintf(
                 'Exception thrown in ExceptionEmail when capturing an exception (%s: %s)',
-                get_class($e), $e->getMessage()
+                get_class($e),
+                $e->getMessage()
             ));
 
             $this->logger->error($e);
@@ -96,7 +101,7 @@ class ExceptionEmail
 
     /**
      * Capture an exception.
-     * 
+     *
      * @param  \Exception|Throwable $exception
      * @return void
      */
@@ -113,7 +118,7 @@ class ExceptionEmail
 
     /**
      * Checks if exceptionemail is silent.
-     * 
+     *
      * @return boolean
      */
     private function isSilent()
@@ -123,7 +128,7 @@ class ExceptionEmail
 
     /**
      * Determine if the exception is in the "capture" list.
-     * 
+     *
      * @param  Throwable|\Exception $exception
      * @return boolean
      */
@@ -150,7 +155,7 @@ class ExceptionEmail
 
     /**
      * Determine if the exception is from the bot.
-     * 
+     *
      * @return boolean
      */
     private function isExceptionFromBot()
@@ -171,6 +176,26 @@ class ExceptionEmail
             }
         }
 
+        return false;
+    }
+
+    /**
+     * Determine if the exception is from the into ignore.
+     *
+     * @return boolean
+     */
+    private function isIgnoredException()
+    {
+        $ignored_exception = $this->config->get('exceptionemail.ignored_exception');
+        if (! is_array($ignored_exception)) {
+            return false;
+        }
+
+        foreach ($ignored_exception as $type) {
+            if ($exception instanceof $type) {
+                return true;
+            }
+        }
         return false;
     }
 }
