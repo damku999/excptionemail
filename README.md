@@ -29,7 +29,7 @@ public function report(Throwable $exception)
 
 ### Configuration File
 
-Create the ExceptionEmail configuration file  with this command:
+Create ExceptionEmail configuration file  with this command:
 
 ```bash
 $ php artisan vendor:publish --provider="Darshan\ExceptionEmail\ExceptionEmailServiceProvider"
@@ -62,7 +62,7 @@ By default, the package has included `Symfony\Component\Debug\Exception\FatalErr
 ],
 ```
 
-You can also use `'*'` in the `$capture` array which will in turn captures every exception.
+You can also use `'*'` in the `$capture` array which will, in return captures every exception.
 
 ```php
 'capture' => [
@@ -70,7 +70,22 @@ You can also use `'*'` in the `$capture` array which will in turn captures every
 ],
 ```
 
-To use this feature you should add the following code in `app/Exceptions/Handler.php`:
+By default, the package has included nothing to ignore exception email list 
+
+```php
+'ignored_exception' => [
+    // Darshan\ExceptionEmail\Exceptions\DummyException::class,
+],
+```
+But if you want to ignore any specific type of exceptions you can add in the `$ignored_exception` array which will, in return ignored those specified exceptions.
+
+```php
+'ignored_exception' => [
+    Symfony\Component\Debug\Exception\FatalErrorException::class,
+],
+```
+
+To use this feature you need to add the following code in `app/Exceptions/Handler.php`:
 
 ```php
 public function report(Exception $exception)
@@ -85,7 +100,7 @@ public function report(Exception $exception)
 
 #### to
 
-This is the list of recipients of error emails.
+It's a list of recipients who will receive error emails.
 
 ```php
 'to' => [
@@ -95,7 +110,7 @@ This is the list of recipients of error emails.
 
 #### ignored_bots
 
-This is the list of bots for which we should NOT send error emails.
+It's a list of bots for where you would like to ignore sending error emails.
 
 ```php
 'ignored_bots' => [
@@ -108,40 +123,41 @@ This is the list of bots for which we should NOT send error emails.
 
 ## Customize
 
-If you need to customize the subject and body of email, run following command:
+Run the following command in order to customize the subject and body of the email
 
 ```bash
 $ php artisan vendor:publish --provider="Darshan\ExceptionEmail\ExceptionEmailServiceProvider"
 ```
 
-> Note - Don't run this command again if you have run it already.
+> Note - Don't run this command again if you have already run it.
 
-Now the email's subject and body view are located in the `resources/views/vendor/exceptionemail` directory.
+Now, subject and body views are located in the `resources/views/vendor/exceptionemail` directory for the emails.
 
-We have passed the thrown exception object `$exception` in the view which you can use to customize the view to fit your needs.
+We have passed the thrown exception object `$exception` in a view which you can use to customize according to your need.
 
 ## EmailTest
 ### Test your integration
-To verify that ExceptionEmail is configured correctly and our integration is working, use `exceptionemail:test` Artisan command:
+To verify ExceptionEmail is configured correctly and our integration is working, use `exceptionemail:test` Artisan command:
 
 ```bash
-$ php artisan exceptionemail:test
+$ PHP artisan exceptionemail:test
 ```
 
 A `Darshan\ExceptionEmail\Exceptions\DummyException` class will be thrown and captured by ExceptionEmail. The captured exception will appear in your configured email immediately.
 
 ## Security
 
-If you discover any security related issues, please email damku999@gmail.com instead of using the issue tracker.
+If you discover any security-related issues, please email damku999@gmail.com instead of using the issue tracker.
 
 ## Credits
 
 - [Darshan Baraiya](https://github.com/damku999)
+- [squareboat](https://github.com/squareboat/sneaker)
 - [All Contributors](../../contributors)
 
 ## About Darshan
 
-[Darshan](https://webmonks.in) is a startup focused, product development company based in Ahmedabad, India. You'll find an overview of all our open source projects [on GitHub](https://github.com/Darshan).
+[Darshan](https://webmonks.in) is a startup company for product development based in Ahmedabad, India. You'll find an overview of all our open source projects [on GitHub](https://github.com/damku999).
 
 # License
 
