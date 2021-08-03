@@ -1,6 +1,6 @@
 <?php
 
-namespace Darshan\ExceptionEmail;
+namespace Webmonks\ExceptionEmail;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -32,7 +32,7 @@ class ExceptionEmailServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \Darshan\ExceptionEmail\Commands\EmailTest::class,
+                \Webmonks\ExceptionEmail\Commands\EmailTest::class,
             ]);
         }
     }

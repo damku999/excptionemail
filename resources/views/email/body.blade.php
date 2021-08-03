@@ -18,18 +18,36 @@
                 border: 1px solid #ccc;
             }
             {!! $css !!}
+            .exception-summary {
+                background-color:#000 !important;
+            }
+            .exception-http{
+                color:#FFFFFF !important;
+            }
+            .exception-http h2 small{
+                color:#FFFFFF !important;
+            }
+             .container h2 small{
+                color:#FFFFFF !important;
+            }
+            .container h2 {
+                color:#FFFFFF !important;
+            }
+            .container h2 a abbr{
+                color:#FFFFFF !important;
+            }
         </style>
     </head>
     <body>
         <div class="extra-info">
             Requested Url - {{ request()->url() }}
         </div>
-        {{--  <div class="extra-info">
+         <div class="extra-info">
             Request Headers - <pre>{{ print_r(request()->header(), true) }}</pre>
         </div>
         <div class="extra-info">
             Request Body - <pre>{{ print_r(request()->all() ?? request()->json()->all(), true) }}</pre>
-        </div>  --}}
+        </div> 
         <div class="extra-info">
             &#128336; &nbsp;{{ date('l, jS \of F Y h:i:s a') }} {{ date_default_timezone_get() }}
         </div>
@@ -39,6 +57,8 @@
         <div class="extra-info">
             User - {{ request()->ip() ?? '' }}
         </div>
-        {!! $content !!}
+        <div class="extra-info">
+            {!! $content !!}
+        </div>
     </body>
 </html>

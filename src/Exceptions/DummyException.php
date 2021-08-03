@@ -1,6 +1,6 @@
 <?php
 
-namespace Darshan\ExceptionEmail\Exceptions;
+namespace Webmonks\ExceptionEmail\Exceptions;
 
 use Exception;
 

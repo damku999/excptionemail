@@ -1,6 +1,6 @@
 <?php
 
-namespace Darshan\ExceptionEmail;
+namespace Webmonks\ExceptionEmail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

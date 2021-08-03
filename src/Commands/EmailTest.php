@@ -1,11 +1,11 @@
 <?php
 
-namespace Darshan\ExceptionEmail\Commands;
+namespace Webmonks\ExceptionEmail\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Config\Repository;
-use Darshan\ExceptionEmail\Exceptions\DummyException;
+use Webmonks\ExceptionEmail\Exceptions\DummyException;
 use Symfony\Component\Console\Application as ConsoleApplication;
 
 class EmailTest extends Command

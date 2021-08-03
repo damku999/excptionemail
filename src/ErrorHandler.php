@@ -1,6 +1,6 @@
 <?php
 
-namespace Darshan\ExceptionEmail;
+namespace Webmonks\ExceptionEmail;
 
 use Illuminate\View\Factory;
 use Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer;

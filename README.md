@@ -32,7 +32,7 @@ public function report(Throwable $exception)
 Create ExceptionEmail configuration file  with this command:
 
 ```bash
-$ php artisan vendor:publish --provider="Darshan\ExceptionEmail\ExceptionEmailServiceProvider"
+$ php artisan vendor:publish --provider="Webmonks\ExceptionEmail\ExceptionEmailServiceProvider"
 ```
 
 The config file will be published in  `config/exceptionemail.php`
@@ -76,7 +76,7 @@ By default, the package has included nothing to ignore exception email list
 
 ```php
 'ignored_exception' => [
-    // Darshan\ExceptionEmail\Exceptions\DummyException::class,
+    // Webmonks\ExceptionEmail\Exceptions\DummyException::class,
 ],
 ```
 But if you want to ignore any specific type of exceptions you can add in the `$ignored_exception` array which will, in return ignored those specified exceptions.
@@ -130,7 +130,7 @@ It's a list of bots for where you would like to ignore sending error emails.
 Run the following command in order to customize the subject and body of the email
 
 ```bash
-$ php artisan vendor:publish --provider="Darshan\ExceptionEmail\ExceptionEmailServiceProvider"
+$ php artisan vendor:publish --provider="Webmonks\ExceptionEmail\ExceptionEmailServiceProvider"
 ```
 
 > Note - Don't run this command again if you have already run it.
@@ -147,7 +147,7 @@ To verify ExceptionEmail is configured correctly and our integration is working,
 $ PHP artisan exceptionemail:test
 ```
 
-A `Darshan\ExceptionEmail\Exceptions\DummyException` class will be thrown and captured by ExceptionEmail. The captured exception will appear in your configured email immediately.
+A `Webmonks\ExceptionEmail\Exceptions\DummyException` class will be thrown and captured by ExceptionEmail. The captured exception will appear in your configured email immediately.
 
 ## Security
 
@@ -159,10 +159,10 @@ If you discover any security-related issues, please email damku999@gmail.com ins
 - [squareboat](https://github.com/squareboat/sneaker)
 - [All Contributors](../../contributors)
 
-## About Darshan
+## About Webmonks
 
-[Darshan](https://webmonks.in) is a startup company for product development based in Ahmedabad, India. You'll find an overview of all our open source projects [on GitHub](https://github.com/damku999).
+[Webmonks](https://webmonks.in) is a startup company for product development based in Ahmedabad, India. You'll find an overview of all our open source projects [on GitHub](https://github.com/damku999).
 
 # License
 
-The MIT License. Please see [License File](LICENSE.md) for more information. Copyright © 2020 [Darshan](https://webmonks.in)
+The MIT License. Please see [License File](LICENSE.md) for more information. Copyright © 2020 [Webmonks](https://webmonks.in)

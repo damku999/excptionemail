@@ -25,14 +25,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Darshan\\ExceptionEmail\\": "src/"
+            "Webmonks\\ExceptionEmail\\": "src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Darshan\\ExceptionEmail\\ExceptionEmailServiceProvider"
+                "Webmonks\\ExceptionEmail\\ExceptionEmailServiceProvider"
             ]
         }
     }

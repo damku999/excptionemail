@@ -37,7 +37,7 @@ return [
     */
 
     'ignored_exception' => [
-        // Darshan\ExceptionEmail\Exceptions\DummyException::class,
+        // Webmonks\ExceptionEmail\Exceptions\DummyException::class,
     ],
     /*
     |--------------------------------------------------------------------------

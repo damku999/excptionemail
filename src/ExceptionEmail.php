@@ -1,6 +1,6 @@
 <?php
 
-namespace Darshan\ExceptionEmail;
+namespace Webmonks\ExceptionEmail;
 
 use Psr\Log\LoggerInterface;
 use Illuminate\Contracts\Mail\Mailer;
@@ -19,7 +19,7 @@ class ExceptionEmail
     /**
      * The exception handler implementation.
      *
-     * @var \Darshan\ExceptionEmail\ErrorHandler
+     * @var \Webmonks\ExceptionEmail\ErrorHandler
      */
     private $handler;
 
@@ -41,7 +41,7 @@ class ExceptionEmail
      * Create a new exceptionemail instance.
      *
      * @param  \Illuminate\Config\Repository $config
-     * @param  \Darshan\ExceptionEmail\ErrorHandler $handler
+     * @param  \Webmonks\ExceptionEmail\ErrorHandler $handler
      * @param  \Illuminate\Contracts\Mail\Mailer $mailer
      * @param  \Psr\Log\LoggerInterface $logger
      * @return void
