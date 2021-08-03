@@ -32,7 +32,7 @@ public function report(Throwable $exception)
 Create ExceptionEmail configuration file  with this command:
 
 ```bash
-$ php artisan vendor:publish --provider="Webmonks\ExceptionEmail\ExceptionEmailServiceProvider"
+php artisan vendor:publish --provider="Webmonks\ExceptionEmail\ExceptionEmailServiceProvider"
 ```
 
 The config file will be published in  `config/exceptionemail.php`
@@ -130,7 +130,7 @@ It's a list of bots for where you would like to ignore sending error emails.
 Run the following command in order to customize the subject and body of the email
 
 ```bash
-$ php artisan vendor:publish --provider="Webmonks\ExceptionEmail\ExceptionEmailServiceProvider"
+php artisan vendor:publish --provider="Webmonks\ExceptionEmail\ExceptionEmailServiceProvider"
 ```
 
 > Note - Don't run this command again if you have already run it.
