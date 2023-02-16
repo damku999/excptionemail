@@ -14,6 +14,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Sends with details logs or not
+    |--------------------------------------------------------------------------
+    |
+    | Should we email error traces with all logs then please set it to false?
+    |
+    */
+    'notify_only' => env('IS_EXCEPTION_EMAIL_NOTIFY', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | A list of the exception types that should be captured.
     |--------------------------------------------------------------------------
     |

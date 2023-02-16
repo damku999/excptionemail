@@ -9,7 +9,7 @@ An easy way to send emails with stack trace whenever an exception occurs on the 
 ### Install via Composer
 
 ```
-$ composer require darshan/exceptionemail
+composer require darshan/exceptionemail
 ```
 ### Configure Laravel
 
@@ -144,7 +144,7 @@ We have passed the thrown exception object `$exception` in a view which you can 
 To verify ExceptionEmail is configured correctly and our integration is working, use `exceptionemail:test` Artisan command:
 
 ```bash
-$ PHP artisan exceptionemail:test
+php artisan exceptionemail:test
 ```
 
 A `Webmonks\ExceptionEmail\Exceptions\DummyException` class will be thrown and captured by ExceptionEmail. The captured exception will appear in your configured email immediately.

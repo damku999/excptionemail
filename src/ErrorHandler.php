@@ -5,6 +5,7 @@ namespace Webmonks\ExceptionEmail;
 use Illuminate\View\Factory;
 use Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
+use Illuminate\Config\Repository;
 
 
 class ErrorHandler
@@ -17,14 +18,24 @@ class ErrorHandler
     private $view;
 
     /**
+     * The config implementation.
+     *
+     * @var \Illuminate\Config\Repository
+     */
+    private $config;
+
+    /**
      * Create a new exception handler instance.
      *
      * @param  \Illuminate\View\Factory $view
+     * @param  \Illuminate\Config\Repository $config
      * @return void
      */
-    public function __construct(Factory $view)
+
+    public function __construct(Factory $view, Repository $config)
     {
         $this->view = $view;
+        $this->config = $config;
     }
 
     /**
@@ -47,11 +58,24 @@ class ErrorHandler
     public function convertExceptionToHtml($exception)
     {
         $flat = $this->getFlattenedException($exception);
-
         $renderer = new HtmlErrorRenderer(true);
+        if (!$this->isNotifyOnly()) {
+            $content =  $renderer->getBody($flat);
+        } else {
+            $content = !empty($exception->getMessage()) ? $exception->getMessage() : 'Some errors on the server please check log file for more information';
+        }
 
-        return $this->decorate($renderer->getBody($flat), $renderer->getStylesheet($flat), $flat);
+        return $this->decorate($content, $renderer->getStylesheet($flat), $flat);
+    }
 
+    /**
+     * Checks if exceptionemail is silent.
+     *
+     * @return boolean
+     */
+    private function isNotifyOnly()
+    {
+        return $this->config->get('exceptionemail.notify_only', false);
     }
 
     /**
@@ -78,8 +102,9 @@ class ErrorHandler
      */
     private function decorate($content, $css, $exception)
     {
-        $content = $this->removeTitle($content);
-
+        if (!$this->isNotifyOnly()) {
+            $content = $this->removeTitle($content);
+        }
         return $this->view->make('exceptionemail::email.body', compact('content', 'css', 'exception'))->render();
     }
 
