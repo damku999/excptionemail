@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": ">=8.2",
+        "php": ">=7.4 || >=8.*",
         "illuminate/support": "8.*|9.*|10.*|11.*",
         "illuminate/view": "8.*|9.*|10.*|11.*",
         "illuminate/config": "8.*|9.*|10.*|11.*",
