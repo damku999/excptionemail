@@ -4,7 +4,15 @@
     "description": "An easy way to send emails with stack trace whenever an exception occurs on the server for Laravel Applications.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["laravel8", "exceptions", "email", "laravel"],
+    "keywords": [
+        "laravel8",
+        "laravel9",
+        "laravel10",
+        "laravel11",
+        "exceptions",
+        "email",
+        "laravel"
+    ],
     "authors": [
         {
             "name": "Darshan Baraiya",
@@ -12,18 +20,17 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
-        "illuminate/support": "8.*",
-        "illuminate/view": "8.*",
-        "illuminate/config": "8.*",
-        "illuminate/mail": "8.*",
-        "illuminate/log": "8.*",
-        "illuminate/queue": "8.*",
-        "illuminate/console": "8.*",
-        "symfony/error-handler": "~5.1"
+        "php": ">=8.2",
+        "illuminate/support": "8.*|9.*|10.*|11.*",
+        "illuminate/view": "8.*|9.*|10.*|11.*",
+        "illuminate/config": "8.*|9.*|10.*|11.*",
+        "illuminate/mail": "8.*|9.*|10.*|11.*",
+        "illuminate/log": "8.*|9.*|10.*|11.*",
+        "illuminate/queue": "8.*|9.*|10.*|11.*",
+        "illuminate/console": "8.*|9.*|10.*|11.*",
+        "symfony/error-handler": "~5.1|~6.0"
     },
-    "require-dev": {
-    },
+    "require-dev": {},
     "autoload": {
         "psr-4": {
             "Webmonks\\ExceptionEmail\\": "src/"
