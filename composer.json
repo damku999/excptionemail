@@ -4,13 +4,30 @@
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "laravel8",
-        "laravel9",
-        "laravel10",
-        "laravel11",
-        "exceptions",
-        "email",
-        "laravel"
+        "error-reporting",
+        "bug-tracking",
+        "laravel-log-email",
+        "exception-notifier",
+        "error-monitoring",
+        "automatic-error-notification",
+        "laravel-error-alerts",
+        "server-error-email",
+        "exception-logging",
+        "laravel-exception-monitoring",
+        "email-alerts",
+        "real-time-error-notification",
+        "laravel-exception-handler",
+        "error-debugging",
+        "Laravel Error Monitoring",
+        "Laravel Exception Handler",
+        "Error Reporting",
+        "Exception Tracking",
+        "Server Error Notification",
+        "Stack Trace Email Alerts",
+        "Laravel Bug Tracking",
+        "Real-time Error Alerts",
+        "Laravel Error Logging",
+        "Automated Error Notification"
     ],
     "authors": [
         {
@@ -27,7 +44,7 @@
         "illuminate/log": "8.*|9.*|10.*|11.*",
         "illuminate/queue": "8.*|9.*|10.*|11.*",
         "illuminate/console": "8.*|9.*|10.*|11.*",
-        "symfony/error-handler": "~5.1|~6.0"
+        "symfony/error-handler": "~5.1|~6.0|~7.0"
     },
     "require-dev": {},
     "autoload": {
