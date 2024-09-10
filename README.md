@@ -51,7 +51,7 @@ class ExceptionServiceProvider extends ServiceProvider
 In `bootstrap/providers.php`, register your custom `ExceptionServiceProvider` by adding it to the `providers` array:
 
 ```php
-'providers' => [
+return [
     // Other service providers...
     App\Providers\ExceptionServiceProvider::class,
 ],
