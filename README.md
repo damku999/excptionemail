@@ -1,5 +1,3 @@
-I can't directly create downloadable files, but I can provide the content for you to copy and save as a `.md` file. Here’s the content for your `README.md` file:
-
 ```markdown
 # Laravel Exception Notifications
 
