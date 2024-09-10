@@ -1,4 +1,3 @@
-```markdown
 # Laravel Exception Notifications
 
 An easy-to-use package for sending email notifications with stack traces whenever an exception occurs in your Laravel application.
