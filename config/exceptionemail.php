@@ -10,7 +10,7 @@ return [
     | Should we email error traces?
     |
     */
-    'silent' => env('IS_EXCEPTION_EMAIL_SILENT', true),
+    'silent' => env('IS_EXCEPTION_EMAIL_SILENT', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
     |
     */
     'capture' => [
-        Symfony\Component\Debug\Exception\FatalErrorException::class,
+        \Symfony\Component\ErrorHandler\Error\FatalError::class,
     ],
 
     /*

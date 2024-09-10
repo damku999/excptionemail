@@ -10,43 +10,26 @@ use Symfony\Component\Console\Application as ConsoleApplication;
 
 class EmailTest extends Command
 {
-    /**
-     * The console command name.
-     *
-     * @var string
-     */
     protected $name = 'exceptionemail:test';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Check if exceptionemail is working.';
-
-    /**
-     * The config implementation.
-     *
-     * @var \Illuminate\Config\Repository
-     */
     private $config;
 
     /**
-     * Create a test command instance.
+     * Create a new instance of the EmailTest command.
      *
-     * @param  \Illuminate\Config\Repository $config
+     * @param Repository $config The configuration repository.
      * @return void
      */
     public function __construct(Repository $config)
     {
         parent::__construct();
-
         $this->config = $config;
     }
 
     /**
-     * Execute the console command.
+     * Handles the exception email test command.
      *
+     * @throws Exception description of exception
      * @return void
      */
     public function handle()
@@ -54,8 +37,8 @@ class EmailTest extends Command
         $this->overrideConfig();
 
         try {
-            app('exceptionemail')->captureException(new DummyException, true);
-
+            // Capture DummyException and send email
+            app('exceptionemail')->captureException(new DummyException);
             $this->info('ExceptionEmail is working fine ✅');
         } catch (Exception $e) {
             (new ConsoleApplication)->renderThrowable($e, $this->output);
@@ -63,8 +46,8 @@ class EmailTest extends Command
     }
 
     /**
-     * Overriding the default configurations.
-     * 
+     * Overrides the configuration to capture the DummyException.
+     *
      * @return void
      */
     public function overrideConfig()
