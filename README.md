@@ -48,7 +48,7 @@ class ExceptionServiceProvider extends ServiceProvider
 
 2. **Register the Service Provider:**
 
-In `config/app.php`, register your custom `ExceptionServiceProvider` by adding it to the `providers` array:
+In `bootstrap/providers.php`, register your custom `ExceptionServiceProvider` by adding it to the `providers` array:
 
 ```php
 'providers' => [
